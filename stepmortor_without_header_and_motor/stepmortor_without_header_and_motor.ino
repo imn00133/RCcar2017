@@ -1,11 +1,11 @@
+//declare variables for the motor pins
 int motorPin1 = 2;    // Blue   - 28BYJ48 pin 1
 int motorPin2 = 3;    // Pink   - 28BYJ48 pin 2
 int motorPin3 = 4;    // Yellow - 28BYJ48 pin 3
 int motorPin4 = 5;    // Orange - 28BYJ48 pin 4
                         // Red    - 28BYJ48 pin 5 (VCC)
-
-
 //768번이 360도, 48step, 기어비 1:16
+
 //모터A in & 속도
 int InA1 = 7;
 int InA2 = 8;
@@ -15,54 +15,56 @@ int InAV = 6;
 int InB1 = 9;
 int InB2 = 10;
 int InBV = 11;
-
+ 
 int motorSpeed = 1200;  //variable to set stepper speed
 int count = 0;          // count of steps made
 int countsperrev = 512; // number of steps per full revolution
 int lookup[8] = {B01000, B01100, B00100, B00110, B00010, B00011, B00001, B01001};
-
-void setup() {
-  pinMode(InA1, OUTPUT);
-  pinMode(InA2, OUTPUT);
-  pinMode(InB1, OUTPUT);
-  pinMode(InB2, OUTPUT);
  
+//////////////////////////////////////////////////////////////////////////////
+void setup() {
+  //declare the motor pins as outputs
   pinMode(motorPin1, OUTPUT);
   pinMode(motorPin2, OUTPUT);
   pinMode(motorPin3, OUTPUT);
   pinMode(motorPin4, OUTPUT);
   Serial.begin(9600);
 }
-
-void loop(){
-  if(count < countsperrev )
-    clockwise();
-  else if (count == countsperrev * 2)
-    count = 0;
-  else
-    anticlockwise();
-  count++;
-}
-/*
+ 
+//////////////////////////////////////////////////////////////////////////////
+  void loop(){
   bothMotorStart();
+  while(count<1024){
+    if(count < countsperrev )
+      clockwise();
+    else if (count == countsperrev * 2)
+      count = 0;
+    else
+      anticlockwise();
+    count++;
+  }
   
-  delay(3000);
+  delay(1000);
   turnLeft();
-  delay(3000);  
+  delay(1000);  
   turnRight();
-  delay(3000);
+  delay(1000);
   motorA_Rotation();
-  delay(3000);
+  delay(1000);
   motorB_Rotation();
-  delay(3000);
+  delay(1000);
   motorA_Reverse();
-  delay(3000);
-  motorB_Reverse();
-  delay(3000);
+  delay(1000);
+  motorB_Reverse(); 
+  delay(1000);
   stopAllMotor();
-  delay(3000);
-  */
-}
+  delay(1000);
+
+  }
+ 
+//////////////////////////////////////////////////////////////////////////////
+//set pins to ULN2003 high in sequence from 1 to 4
+//delay "motorSpeed" between each pin setting (to determine speed)
 //모터A,B 정회전
 void bothMotorStart()
 {

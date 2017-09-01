@@ -59,3 +59,4 @@ void setOutput(int out)
   digitalWrite(motorPin3, bitRead(lookup[out], 2));
   digitalWrite(motorPin4, bitRead(lookup[out], 3));
 }
+//http://www.hardcopyworld.com/ngine/aduino/index.php/archives/449
