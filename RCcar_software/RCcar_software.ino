@@ -11,18 +11,17 @@ int InB2 = 10;
 int InBV = 11;
 
 //Stepmotor
-//768번이 360도, 48step, 기어비 1:16
 //declare variables for the motor pins
 int motorPin1 = 2;    // Blue   - 28BYJ48 pin 1
 int motorPin2 = 3;    // Pink   - 28BYJ48 pin 2
 int motorPin3 = 4;    // Yellow - 28BYJ48 pin 3
 int motorPin4 = 5;    // Orange - 28BYJ48 pin 4
-                        // Red    - 28BYJ48 pin 5 (VCC)                     
+                      // Red    - 28BYJ48 pin 5 (VCC)                     
 
-int motorSpeed = 1200;  //variable to set stepper speed
-int count = 0;          // count of steps made
-int countsperrev = 512; // number of steps per full revolution
-int lookup[8] = {B01000, B01100, B00100, B00110, B00010, B00011, B00001, B01001};
+int motorSpeed = 1200;  //variable to set stepper speed, 숫자가 커지면 속도가 줄어든다.(microDlay사용)
+int stepCount = 0;          // count of steps made, 몇 번 도는지 센다.
+int countsperrev = 32; // number of steps per full revolution, 512가 1바퀴이다.
+int lookup[9] = {B01000, B01100, B00100, B00110, B00010, B00011, B00001, B01001, B00000}; // 8step을 하나로 묶어놓았다. 마지막은 전류를 흐르지 않게 초기화
 
 //bluetooth
 int blueTx = 12;
@@ -44,7 +43,7 @@ void setup() {
 
 void loop() {
   user_input="";
-  count=0;
+  stepCount=0;
   if (Serial.available())
   {
     user_input=Serial.read();
@@ -66,15 +65,20 @@ void loop() {
   if (user_input=='a')
   {
     testPrint();
-    while(count<1024){
-      if(count < countsperrev )
-        clockwise();
-      else if (count == countsperrev * 2)
-       count = 0;
-     else
-       anticlockwise();
-     count++;
+    while(stepCount < countsperrev)
+    {
+      clockwise();
+      stepCount++;
+    }
   }
+  if (user_input=='d')
+  {
+    testPrint();
+    while(stepCount < countsperrev)
+    {
+      anticlockwise();
+      stepCount++;    
+    }
   }
   if (user_input=='i')
   {
@@ -187,6 +191,7 @@ void anticlockwise()
     setOutput(i);
     delayMicroseconds(motorSpeed);
   }
+  setOutput(8);
 }
  
 void clockwise()
@@ -196,6 +201,7 @@ void clockwise()
     setOutput(i);
     delayMicroseconds(motorSpeed);
   }
+  setOutput(8);
 }
  
 void setOutput(int out)

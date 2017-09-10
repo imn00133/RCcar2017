@@ -5,9 +5,9 @@ int motorPin3 = 4;    // Yellow - 28BYJ48 pin 3
 int motorPin4 = 5;    // Orange - 28BYJ48 pin 4
                         // Red    - 28BYJ48 pin 5 (VCC)
  
-int motorSpeed = 1200;  //variable to set stepper speed
+int motorSpeed = 2400;  //variable to set stepper speed
 int count = 0;          // count of steps made
-int countsperrev = 512; // number of steps per full revolution
+int countsperrev = 128; // number of steps per full revolution
 int lookup[8] = {B01000, B01100, B00100, B00110, B00010, B00011, B00001, B01001};
  
 //////////////////////////////////////////////////////////////////////////////
