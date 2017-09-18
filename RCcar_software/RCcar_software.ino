@@ -28,11 +28,12 @@ int blueTx = 12;
 int blueRx = 13;
 SoftwareSerial bluetoothSerial(blueTx, blueRx);
 
-int carSpeed=127;
+int carSpeed;
 char user_input;
 
 void setup() {
   //declare the motor pins as outputs
+  int carSpeed = 128;
   pinMode(motorPin1, OUTPUT);
   pinMode(motorPin2, OUTPUT);
   pinMode(motorPin3, OUTPUT);
@@ -84,6 +85,10 @@ void loop() {
   {
     testPrint();
     stopAllMotor();
+  }
+  if (user_input == 'o')
+  {
+	  speed_change();
   }
 }
 void testPrint()
@@ -210,4 +215,18 @@ void setOutput(int out)
   digitalWrite(motorPin2, bitRead(lookup[out], 1));
   digitalWrite(motorPin3, bitRead(lookup[out], 2));
   digitalWrite(motorPin4, bitRead(lookup[out], 3));
+}
+
+void speed_change() {
+	if (carSpeed == 255) {
+		carSpeed = 63;
+	}
+	else if (carSpeed < 64) {
+		carSpeed = 127;
+	}
+	else
+	{
+		carSpeed = 255;
+	}
+
 }
