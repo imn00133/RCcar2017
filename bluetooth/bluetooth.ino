@@ -18,4 +18,4 @@ void loop()
     mySerial.write(Serial.read());  //시리얼 모니터 내용을 블루추스 측에 WRITE
   }
 }
-
+//https://m.blog.naver.com/PostView.nhn?blogId=makist2015&logNo=220408135622&proxyReferer=https%3A%2F%2Fwww.google.com%2F

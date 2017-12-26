@@ -28,6 +28,11 @@ int blueTx = 12;
 int blueRx = 13;
 SoftwareSerial bluetoothSerial(blueTx, blueRx);
 
+//arduino_UART
+int arduinoTX = 14;
+int arduinoRX = 15;
+SoftwareSerial arduinoSerial(arduinoTX, arduinoRX);
+
 int carSpeed;
 char user_input;
 
@@ -40,10 +45,11 @@ void setup() {
   pinMode(motorPin4, OUTPUT);
   Serial.begin(9600);
   bluetoothSerial.begin(9600);
+  arduinoSerial.begin(9600);
 }
 
 void loop() {
-  user_input="";
+  user_input = "";
   stepCount=0;
   if (Serial.available())
   {
@@ -52,6 +58,10 @@ void loop() {
   if (bluetoothSerial.available())
   {
     user_input = (char)bluetoothSerial.read();
+  }
+  if (arduinoSerial.available())
+  {
+	  user_input = (char)arduinoSerial.read();
   }
   if (user_input=='w')
   {

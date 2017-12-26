@@ -1,0 +1,113 @@
+아두이노 관련 사이트
+각종 예제 http://codingrun.com/category/%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8/%EA%B8%B0%EC%B4%88%20%EA%B0%9C%EB%85%90
+
+아날로그핀
+http://studymake.tistory.com/168
+
+시리얼통신
+http://blog.naver.com/PostView.nhn?blogId=dkwltmdgus&logNo=220707183899
+
+블루투스
+http://deneb21.tistory.com/267
+
+블루투스끼리 연결
+https://www.kocoafab.cc/tutorial/view/712
+
+모터드라이브 조정
+http://deneb21.tistory.com/277
+모터드라이브 pdf
+http://pds25.egloos.com/pds/201702/03/38/L298N-MOTOR-DRIVER.pdf
+
+조향장치
+과학상자로 만든 것 http://blog.naver.com/PostView.nhn?blogId=pantom02515&logNo=220216840278
+스텝모터 스펙 http://robocraft.ru/files/datasheet/28BYJ-48.pdf
+SG90 서보모터 스팩 http://www.micropik.com/PDF/SG90Servo.pdf
+
+5 3 스텝모터-> 39 축 ->커플링 
+
+스텝모터(28BYJ-48)구동하기 (UNL2003 드라이브)
+//768번이 360도, 48step, 기어비 1:16
+헤더사용
+http://gent.tistory.com/70
+stepper.h 내용
+http://engyfun.blogspot.kr/2015/02/here-is-source-code-for-our-28byj48.html
+http://blog.naver.com/PostView.nhn?blogId=yuyyulee&logNo=220343892833
+
+해더 없음
+https://m.blog.naver.com/PostView.nhn?blogId=makist2015&logNo=220405204442&proxyReferer=https%3A%2F%2Fwww.google.com%2F ->헤더없이 해보기
+http://www.hardcopyworld.com/ngine/aduino/index.php/archives/449
+
+stepper.h해석
+https://blog.naver.com/PostView.nhn?blogId=yuyyulee&logNo=220343892833&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView
+
+스텝모터 스펙 및 기타 라이브러리, 예제
+http://blog.daum.net/rockjjy99/2395
+
+EasyDriverStepperMotor
+http://www.hardcopyworld.com/ngine/aduino/index.php/archives/470
+http://blog.naver.com/PostView.nhn?blogId=yuyyulee&logNo=220345084229
+http://www.devicemart.co.kr/1327606
+
+블루투스(HC-06)
+https://m.blog.naver.com/PostView.nhn?blogId=makist2015&logNo=220408135622&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+https://www.kocoafab.cc/tutorial/view/712
+http://deneb21.tistory.com/267
+http://makeshare.org/bbs/board.php?bo_table=arduinocom&wr_id=8
+
+putty
+https://extrememanual.net/7643
+https://opentutorials.org/module/2106/12248
+
+차동기어를 넣는가=?돌아갈때 속도조절
+
+해피아저씨 말
+움직이는 조향장치를 만들 때, 연결되는 조인트(링크)부분에는 와셔가 들어감.
+볼트-와셔(1-2개, 만일 3D프린터같은 걸로 만들었으면 와셔 1개 뒤쪽에 더 큰 와셔를 넣어서 압력을 줄임. 아니면 부분이 넓혀지는 경우도 있음)-프레임-와셔(1-2)-프레임-와셔(1-2)에 락너트를 연결함.
+연결할 때는 리벳 또는 락너트를 쓰는데, 락너트가 편할꺼임.-락너트는 볼트-프레임-너트-너트를 사용해서 너트끼리 꽉 조이는 것.
+그리고 3D프린터에서 3cm*3cm판을 만든다면 노즐 두께만큼 추가됨. 노즐의 정중앙이 시작의 중심에 들어가기 때문.
+
+그리고 모터에 기어를 연결할꺼면 커플링을 쓰던가. 지금은 기어가 싼걸 쓰니, 기어를 5파이 전동드릴을 통해서 구멍을 넓힌다. 이렇게 넓히면 원래 조여주는 부분이 막히지만, 볼트로 누르면 간단하게 뚫린다고 함.
+
+그리고 기어는 작은걸 쓰는게 좋음. 토크랑 정밀도.
+
+마지막으로 기어 이의 높이(가장 들어간 곳부터 가장 올라온 곳까지)가 깊은 것이 좋다. 힘 들어가면 이가 깨지거나 흔들림. =>따라서 우리는 두께라도 두껍게하는게 좋지 않으려나.
+[트리거해피-이현호] [오후 8:23] 치수가 3이고
+[트리거해피-이현호] [오후 8:23] 공차가 -0.15 ~ 0 네요
+[트리거해피-이현호] [오후 8:27] 정리하면 축은 치수가 ∅5에 공차 -0.1 ~ 0
+[김재형-벌레] [오후 8:27] 오 그렇군요 감사합니다
+[트리거해피-이현호] [오후 8:27] 체결부는 위에 말한 치수 3에 공차 범위
+[트리거해피-이현호] [오후 8:27] 공차는
+[트리거해피-이현호] [오후 8:28] 치수 기준으로 저만큼 오차가 난단 뜻이에요
+[김재형-벌레] [오후 8:28] 므으..!
+[트리거해피-이현호] [오후 8:28] 단위는 모두 밀리미터구요
+[김재형-벌레] [오후 8:28] 그렇다면 저런 체결부(?)가 있으면 뭘 연결할 수 있는건가요?
+[트리거해피-이현호] [오후 8:29] 바퀴 같은 걸 달고
+[김재형-벌레] [오후 8:29] 일자로 되어있는게 체결부 맞죠?
+[트리거해피-이현호] [오후 8:29] 볼트로 저 평평한 부분을 짓누르게 되어 있어서
+[트리거해피-이현호] [오후 8:30] 볼트를 조이면 헛돌지 않게 설계합니다
+[트리거해피-이현호] [오후 8:30] photo
+[김재형-벌레] [오후 8:31] 마아 그렇군요!
+[김재형-벌레] [오후 8:31] 마지막으로 궁금한게 있는데요. 기어축과 모터축 크기가 다른데 저 둘을 연결하려고 하는데 어떤 방법이 있을까요?
+[트리거해피-이현호] [오후 8:31] 커플링이요
+[트리거해피-이현호] [오후 8:31] 축끼리 이어주는 부품
+[트리거해피-이현호] [오후 8:32] photo
+[김재형-벌레] [오후 8:32] 그렇군요. 그럼 두 축의 크기에 맞게 구매하면 되는건가요?
+[트리거해피-이현호] [오후 8:33] 아마 3D 프린터 용으로 구하면
+[트리거해피-이현호] [오후 8:33] 직경 작은 애들 구 할 수 있을거에요
+[김재형-벌레] [오후 8:33] 넵 감사합니다!
+[트리거해피-이현호] [오후 8:33] 그리고 보통은 같은 직경을 잇는거라
+[트리거해피-이현호] [오후 8:33] 어찌될지 잘 모르겠네요
+[트리거해피-이현호] [오후 8:34] 그리고 모터쪽처럼
+[트리거해피-이현호] [오후 8:34] 양쪽이나 한쪽이 평평하게 쳐낸 곳이 있어야 헛돌지 않아요
+[트리거해피-이현호] [오후 8:34] 축의 경우
+[김재형-벌레] [오후 8:35] 마아! 그렇군요. 조언 감사합니다 >_</
+[트리거해피-이현호] [오후 8:36] 혹시 저 기어하고 모터 잇는건가염
+[트리거해피-이현호] [오후 8:36] 대략 보니 직경 비슷해 보여서...
+[김재형-벌레] [오후 8:36] 네 이으려고요.
+[김재형-벌레] [오후 8:37] 아까 재보니 축이 3.9인가 나오는 거 같던데요.
+[트리거해피-이현호] [오후 8:37] 음... 걍 기어에 달린 축 빼고 바로 이을 스 있을 것 같아서...
+[트리거해피-이현호] [오후 8:37] 어느쪽 축이요?
+[트리거해피-이현호] [오후 8:37] 모터? 기어?
+[트리거해피-이현호] [오후 8:38] 기어쪽이 직경이 작으면
+[트리거해피-이현호] [오후 8:39] ∅5짜리 드릴 쓰면 간단 할 것 같은데염
+[김재형-벌레] [오후 8:42] 기어쪽이 작아요
